@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Kalpaka Organics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4a7048;
+      --accent: #aef58b;
+      --bg: #f8fff4;
+      --footer-bg: #e7efac;
+      --text: #222;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(174, 245, 139, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(231, 239, 172, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(248, 255, 244, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #f0f8e8 0%, #e7efac 25%, #f8fff4 50%, #e7efac 75%, #f0f8e8 100%);
+      color: var(--text);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7048' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: -1;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+      min-height: 64px;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7em;
+      color: var(--primary);
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 12px;
+      border-radius: 8px;
+    }
+    .navbar nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 18px;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    .navbar nav a:hover {
+      color: var(--accent);
+    }
+    .contact-hero {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .contact-hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2.3em;
+      margin-bottom: 10px;
+    }
+    .contact-hero p {
+      font-size: 1.15em;
+      color: #3d3d3d;
+    }
+    .contact-section {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .contact-info {
+      flex: 1 1 300px;
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: opacity, transform;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .contact-info.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .contact-info:hover {
+      box-shadow: 0 8px 36px 0 #aef58b, 0 2px 12px rgba(0,0,0,0.13);
+      transform: translateY(-6px) scale(1.02);
+    }
+    .contact-info h4 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    .contact-info p {
+      margin: 8px 0 20px;
+      color: #3d3d3d;
+      line-height: 1.6;
+    }
+    .contact-form {
+      flex: 1 1 500px;
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: opacity, transform;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .contact-form.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .contact-form:hover {
+      box-shadow: 0 8px 36px 0 #aef58b, 0 2px 12px rgba(0,0,0,0.13);
+      transform: translateY(-6px) scale(1.02);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(174, 245, 139, 0.1);
+    }
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1em;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .map-container {
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: opacity, transform;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .map-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .map-container:hover {
+      box-shadow: 0 8px 36px 0 #aef58b, 0 2px 12px rgba(0,0,0,0.13);
+      transform: translateY(-6px) scale(1.02);
+    }
+    .map-container h4 {
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 1.2em;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .footer {
+      background: var(--footer-bg);
+      color: #3d3d3d;
+      padding: 40px 0 18px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .footer-box {
+      flex: 1 1 220px;
+      min-width: 180px;
+    }
+    .footer-box h4 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-box ul li {
+      margin-bottom: 8px;
+    }
+    .footer-box ul li a {
+      color: #3d3d3d;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-box ul li a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
+    }
+    .social-icons a img {
+      width: 24px;
+      margin-right: 12px;
+      transition: transform 0.3s;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
+    }
+    @media (max-width: 900px) {
+      .footer-container, .contact-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-box {
+        width: 100%;
+        min-width: 0;
+      }
+      .contact-info, .contact-form {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../assets/images/logoorg.jpeg" alt="Kalpaka Organics Logo" />
+      Kalpaka Organics
+    </div>
+    <nav>
+      <a href="../index1.html">Home</a>
+      <a href="../about/about.html">About</a>
+      <a href="../products/products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you! Reach us through the details below or send us a message directly.</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Contact Info Block -->
+      <div class="contact-info animated-card">
+        <h4>📍 Head Office</h4>
+        <p>Kalpaka Chemicals Pvt Ltd,<br>No.123, Green Avenue,<br>Madurai, Tamil Nadu – 625001</p>
+
+        <h4>☎️ Phone</h4>
+        <p>+91 98765 43210</p>
+
+        <h4>📧 Email</h4>
+        <p>info@kalpakaorganics.com</p>
+      </div>
+
+      <!-- Contact Form Block -->
+      <form class="contact-form animated-card">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Google Maps Embed -->
+    <div class="map-container animated-card">
+      <h4>📍 Find Us on Google Maps</h4>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.289029797844!2d78.1229021748515!3d8.811901492103817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f17e4e3a1fd5%3A0x8ae36fe93c6a1c47!2sMuthammal%20Colony%2C%20Thoothukudi%2C%20Tamil%20Nadu%20628002!5e0!3m2!1sen!2sin!4v1720519477000!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index1.html">Home</a></li>
+          <li><a href="../about/about.html">About Us</a></li>
+          <li><a href="../products/products.html">Products</a></li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Contact</h4>
+        <p>Email: info@kalpakaorganics.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <div class="social-icons">
+          <a href="#"><img src="../assets/images/facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="../assets/images/instagram.png" alt="Instagram" /></a>
+          <a href="#"><img src="../assets/images/linkedin.png" alt="LinkedIn" /></a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h4>Certifications</h4>
+        <p>ISO 9001:2015 Certified</p>
+        <p>Organic Certified Supplier</p>
+        <p>Trusted Export Partner</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kalpaka Chemicals Pvt Ltd | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  // Intersection Observer for fade-in animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.animated-card');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+  });
+  </script>
+</body>
+</html>

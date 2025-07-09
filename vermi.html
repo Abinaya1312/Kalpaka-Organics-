@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vermi Compost | Kalpaka Organics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4a7048;
+      --accent: #aef58b;
+      --bg: #f8fff4;
+      --footer-bg: #e7efac;
+      --text: #222;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #e7efac 60%, #f8fff4 100%);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+      min-height: 64px;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7em;
+      color: var(--primary);
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 12px;
+      border-radius: 8px;
+    }
+    .navbar nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 18px;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    .navbar nav a:hover {
+      color: var(--accent);
+    }
+    .product-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 10px 40px 10px;
+    }
+    .product-card {
+      display: flex;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px rgba(74,112,72,0.10);
+      max-width: 900px;
+      width: 100%;
+      align-items: center;
+      padding: 40px 32px;
+      gap: 40px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: opacity, transform;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .product-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .product-card:hover, .product-card:focus-within {
+      box-shadow: 0 8px 36px 0 #aef58b, 0 2px 12px rgba(0,0,0,0.13);
+      transform: translateY(-6px) scale(1.02);
+    }
+    .product-img-col {
+      flex: 1 1 220px;
+      min-width: 180px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-img-col img {
+      width: 180px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    .product-info-col {
+      flex: 2 1 340px;
+      min-width: 220px;
+    }
+    .product-info-col h2 {
+      font-family: 'Playfair Display', serif;
+      color: #4a7048;
+      font-size: 2em;
+      margin-bottom: 18px;
+    }
+    .product-info-col ul {
+      font-size: 1.15em;
+      color: #3d3d3d;
+      margin-bottom: 0;
+      line-height: 1.7;
+      padding-left: 20px;
+    }
+    .footer {
+      background: var(--footer-bg);
+      color: #3d3d3d;
+      padding: 40px 0 18px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .footer-box {
+      flex: 1 1 220px;
+      min-width: 180px;
+    }
+    .footer-box h4 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-box ul li {
+      margin-bottom: 8px;
+    }
+    .footer-box ul li a {
+      color: #3d3d3d;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-box ul li a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
+    }
+    .social-icons a img {
+      width: 24px;
+      margin-right: 12px;
+      transition: transform 0.3s;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
+    }
+    @media (max-width: 900px) {
+      .footer-container, .product-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-box {
+        width: 100%;
+        min-width: 0;
+      }
+      .product-img-col img {
+        width: 120px;
+      }
+      .product-info-col h2 {
+        font-size: 1.3em;
+      }
+      .product-info-col ul {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../assets/images/logoorg.jpeg" alt="Kalpaka Organics Logo" />
+      Kalpaka Organics
+    </div>
+    <nav>
+      <a href="../index1.html">Home</a>
+      <a href="../about/about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="../contact/contact.html">Contact</a>
+    </nav>
+  </header>
+  <section class="product-hero">
+    <div class="product-card animated-card">
+      <div class="product-img-col">
+        <img src="../assets/images/vermicompost.jpeg" alt="Vermi Compost Image" />
+      </div>
+      <div class="product-info-col">
+        <h2>Vermi Compost</h2>
+        <ul>
+          <li><strong>Description:</strong> Produced using earthworms, highly beneficial for soil health.</li>
+          <li><strong>Benefits:</strong> High microbial activity, improves crop yield.</li>
+          <li><strong>Usage:</strong> Ideal for all crops – vegetables, cereals, fruits.</li>
+          <li><strong>Packaging:</strong> Available in 25kg and 50kg bags.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index1.html">Home</a></li>
+          <li><a href="../about/about.html">About Us</a></li>
+          <li><a href="../products/products.html">Products</a></li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Contact</h4>
+        <p>Email: info@kalpakaorganics.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <div class="social-icons">
+          <a href="#"><img src="../assets/images/facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="../assets/images/instagram.png" alt="Instagram" /></a>
+          <a href="#"><img src="../assets/images/linkedin.png" alt="LinkedIn" /></a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h4>Certifications</h4>
+        <p>ISO 9001:2015 Certified</p>
+        <p>Organic Certified Supplier</p>
+        <p>Trusted Export Partner</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kalpaka Chemicals Pvt Ltd | All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+  // Intersection Observer for fade-in animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.animated-card');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+  });
+  </script>
+</body>
+</html>

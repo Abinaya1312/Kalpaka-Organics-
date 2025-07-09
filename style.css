@@ -2,10 +2,10 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color:  #dff5e3;;
+  background-color: (rgba(243, 152, 152, 0.7))
   /*background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
             url('../assets/images/index.jpg') no-repeat center center/cover; /* Light organic green */
-  color: #f0fff0;
+  color : #f0fff0;
   scroll-behavior: smooth;
 }
 
@@ -50,7 +50,7 @@ html {
   align-items:center;
   gap:50px;
   background: linear-gradient(rgba(243, 152, 152, 0.7)),
-              url('index1.jpg') no-repeat center center/cover;
+              url('../images/index1.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   padding: 100px;
   color: #1e1e1e;
