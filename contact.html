@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Kalpaka Organics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      /*background-color: #f4fbe3;*/
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url('../assets/images/aboutbg.png') no-repeat center center/cover;
+      color: #333;
+    }
+
+    .contact-section {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 40px;
+      background-color: #86b408;
+
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: hwb(96 95% 3%);
+    }
+
+    .contact-section p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: hwb(0 3% 97%);
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+      background-color: #b8e1ea;
+      padding: 20px;
+      border-radius: 10px;
+      color:#fffefe;
+    }
+
+    .contact-info h4 {
+      margin-bottom: 8px;
+      color: #2e5e1e;
+    }
+
+    .contact-info p {
+      margin: 5px 0 15px;
+    }
+
+    .contact-form {
+      flex: 1 1 600px;
+      background-color:#b8e1ea
+      padding: 20px;
+      border-radius: 10px;
+      color:black;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #56ab2f;
+      box-shadow: 0 0 4px rgba(86, 171, 47, 0.5);
+    }
+
+    .btn {
+      background-color: #56ab2f;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #3b8d1a;
+    }
+
+    .map-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .map-container h4 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .site-footer {
+  background-color: #1f3b57;
+  color: white;
+  padding: 40px 20px 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-box {
+  flex: 1 1 250px;
+}
+
+.footer-box h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #aef58b;
+}
+
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box ul li {
+  margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-box ul li a:hover {
+  color: #a8ffce;
+}
+
+.social-icons a img {
+  width: 24px;
+  margin-right: 12px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #ddd;
+}
+  </style>
+</head>
+<body>
+
+  <section class="contact-section">
+    <h2>CONTACT US </h2>
+    <p>We’d love to hear from you! Reach us through the details below or send us a message directly.</p>
+
+    <div class="contact-container">
+      <!-- Contact Info Block -->
+      <div class="contact-info">
+        <h4>📍 Head Office</h4>
+        <p>Kalpaka Chemicals Pvt Ltd,<br>No.123, Green Avenue,<br>Madurai, Tamil Nadu – 625001</p>
+
+        <h4>☎️ Phone</h4>
+        <p>+91 98765 43210</p>
+
+        <h4>📧 Email</h4>
+        <p>info@kalpakaorganics.com</p>
+      </div>
+
+      <!-- Contact Form Block -->
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Google Maps Embed -->
+    <div class="map-container">
+      <h4>📍 Find Us on Google Maps</h4>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.289029797844!2d78.1229021748515!3d8.811901492103817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f17e4e3a1fd5%3A0x8ae36fe93c6a1c47!2sMuthammal%20Colony%2C%20Thoothukudi%2C%20Tamil%20Nadu%20628002!5e0!3m2!1sen!2sin!4v1720519477000!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  
+    <footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/about.html">About Us</a></li>
+        <li><a href="../products/products.html">Products</a></li>
+        <li><a href="../contact/contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-box">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="../assets/images/facebook.png" alt="Facebook" /></a>
+        <a href="#"><img src="../assets/images/instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="../assets/images/linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="footer-box">
+      <h4>Certifications</h4>
+      <p>ISO 9001:2015 Certified</p>
+      <p>Organic Certified Supplier</p>
+      <p>Trusted Export Partner</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Kalpaka Chemicals Pvt Ltd | All rights reserved.</p>
+  </div>
+
+  </footer>
+
+</body>
+</html>
