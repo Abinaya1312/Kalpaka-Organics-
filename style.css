@@ -50,7 +50,7 @@ html {
   align-items:center;
   gap:50px;
   background: linear-gradient(rgba(243, 152, 152, 0.7)),
-              url('../images/index1.jpg') no-repeat center center/cover;
+              url('index1.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   padding: 100px;
   color: #1e1e1e;
