@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome | Kalpaka Organics</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="assets/css/loader.css">
   <style>
     :root {
       --primary: #4a7048;
@@ -340,6 +340,22 @@
       margin-bottom: 0;
       line-height: 1.7;
     }
+    /* Animation styles for cards */
+    .animated-card {
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: opacity, transform;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .animated-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .animated-card:hover, .animated-card:focus-within {
+      box-shadow: 0 8px 36px 0 #aef58b, 0 2px 12px rgba(0,0,0,0.13);
+      transform: translateY(-6px) scale(1.02);
+    }
     @media (max-width: 900px) {
       .about-card {
         flex-direction: column;
@@ -363,26 +379,70 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">
-      <img src="logoorg.jpeg" alt="Kalpaka Organics Logo" />
+      <img src="assets/images/logoorg.jpeg" alt="Kalpaka Organics Logo" />
       Kalpaka Organics
     </div>
     <nav>
-      <a href="index1.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about/about.html">About</a>
+      <a href="products/products.html">Products</a>
+      <a href="contact/contact.html">Contact</a>
     </nav>
   </header>
 
   <!-- Hero/About Section -->
   <section class="hero enhanced-hero">
-    <div class="about-card">
+    <!-- About Us Card -->
+    <div class="about-card animated-card">
       <div class="about-img-col">
-        <img src="organic.jpg" alt="About Kalpaka Organics" />
+        <img src="assets/images/organic.jpg" alt="About Kalpaka Organics" />
       </div>
       <div class="about-text-col">
         <h1>About Us</h1>
-        <p>Kalpaka Organics is dedicated to sustainable agriculture and organic solutions. We transform organic waste into high-quality compost and plant nutrients, supporting farmers and gardeners in cultivating healthy, chemical-free crops. Our mission is to enrich the soil, nurture the environment, and promote a greener future.</p>
+        <p>For over three decades, Kalpaka Chemicals has pioneered in manufacturing and exporting high-quality activated carbon. Now, we bring that same commitment to purity and sustainability into organic farming — with our premium range of organic inputs.</p>
+      </div>
+    </div>
+
+    <!-- Who We Are Card -->
+    <div class="about-card animated-card" style="margin-top: 30px;">
+      <div class="about-text-col" style="flex: 1;">
+        <h2 style="color: var(--primary); font-size: 1.8em; margin-bottom: 16px;">Who We Are</h2>
+        <p style="font-size: 1.1em; color: #3d3d3d; line-height: 1.7; margin: 0;">A trusted name in carbon technology, now cultivating a greener future through organic solutions.</p>
+      </div>
+    </div>
+
+    <!-- What We Offer Card -->
+    <div class="about-card animated-card" style="margin-top: 30px;">
+      <div class="about-text-col" style="flex: 1;">
+        <h2 style="color: var(--primary); font-size: 1.8em; margin-bottom: 16px;">What We Offer</h2>
+        <ul style="font-size: 1.1em; color: #3d3d3d; line-height: 1.7; padding-left: 20px; margin: 0;">
+          <li><strong>Bio Compost</strong> – Nutrient-rich compost for soil vitality</li>
+          <li><strong>Vermi Compost</strong> – Earthworm-processed natural fertilizer</li>
+          <li><strong>Fish Amino Acid</strong> – Organic growth promoter from natural sources</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Why Choose Us Card -->
+    <div class="about-card animated-card" style="margin-top: 30px;">
+      <div class="about-text-col" style="flex: 1;">
+        <h2 style="color: var(--primary); font-size: 1.8em; margin-bottom: 16px;">Why Choose Us</h2>
+        <ul style="font-size: 1.1em; color: #3d3d3d; line-height: 1.7; padding-left: 20px; margin: 0;">
+          <li>✓ Decades of manufacturing expertise</li>
+          <li>✓ Global export standards</li>
+          <li>✓ 100% organic and eco-certified products</li>
+          <li>✓ Farmer-focused innovation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Buttons Card -->
+    <div class="about-card animated-card" style="margin-top: 30px; text-align: center;">
+      <div class="about-text-col" style="flex: 1;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+          <a href="products/products.html" class="cta-btn" style="padding: 12px 24px; font-size: 1em;">Explore Products</a>
+          <a href="contact/contact.html" class="cta-btn" style="padding: 12px 24px; font-size: 1em;">Contact Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -392,17 +452,17 @@
     <h2>Our Products</h2>
     <div class="product-cards">
       <div class="product-card">
-        <img src="biocompost.jpg" alt="Bio Compost" />
+        <img src="assets/images/biocompost.jpg" alt="Bio Compost" />
         <h3>Bio Compost</h3>
         <p>Fully decomposed organic waste, rich in nutrients for soil health and plant growth.</p>
       </div>
       <div class="product-card">
-        <img src="vermicompost.jpeg" alt="Vermicompost" />
+        <img src="assets/images/vermicompost.jpeg" alt="Vermicompost" />
         <h3>Vermicompost</h3>
         <p>Premium vermicompost produced with earthworms, ideal for organic farming and gardening.</p>
       </div>
       <div class="product-card">
-        <img src="fishamino.png" alt="Fish Amino Acid" />
+        <img src="assets/images/fishamino.png" alt="Fish Amino Acid" />
         <h3>Fish Amino Acid</h3>
         <p>Natural liquid fertilizer made from fish extracts, boosting plant vigor and yield.</p>
       </div>
@@ -415,10 +475,10 @@
       <div class="footer-box">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index1.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about/about.html">About Us</a></li>
+          <li><a href="products/products.html">Products</a></li>
+          <li><a href="contact/contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-box">
@@ -442,6 +502,20 @@
       <p>&copy; 2025 Kalpaka Chemicals Pvt Ltd | All rights reserved.</p>
     </div>
   </footer>
-  <script src="loader.js"></script>
+  <script>
+  // Intersection Observer for fade-in animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.animated-card');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+  });
+  </script>
+  <script src="assets/js/loader.js"></script>
 </body>
 </html>
